@@ -1,6 +1,7 @@
 <?php
 
 namespace Database\Seeders;
+
 use Illuminate\Database\Seeder;
 use App\Models\Curso;
 
@@ -8,64 +9,29 @@ class CursoSeeder extends Seeder
 {
     public function run()
     {
-        Curso::create([
-            'cod_curso' => 1,
-            'descricao' => 'Engenharia Eletrotécnica',
-            'tipo_curso' => 'Bacharelado'
-        ]);
+        // Cursos da 1ª à 9ª classe com 'tipo_curso' vazio
+        for ($i = 1; $i <= 9; $i++) {
+            Curso::create([
+                'cod_curso' => $i,
+                'descricao' => $i . 'ª classe',
+                'tipo_curso' => ''
+            ]);
+        }
 
-        Curso::create([
-            'cod_curso' => 2,
-            'descricao' => 'Engenharia Informática',
-            'tipo_curso' => 'Bacharelado'
-        ]);
+        // Tipos de curso para as classes 10ª, 11ª e 12ª
+        $tipos_cursos = [
+            'Ciencias Fisicas e Biologicas',
+            'Ciências Econômicas e Jurídicas',
+            'Direito'
+        ];
 
-        Curso::create([
-            'cod_curso' => 3,
-            'descricao' => 'Engenharia Civil',
-            'tipo_curso' => 'Bacharelado'
-        ]);
-
-        Curso::create([
-            'cod_curso' => 4,
-            'descricao' => 'Administração de Empresas',
-            'tipo_curso' => 'Bacharelado'
-        ]);
-
-        Curso::create([
-            'cod_curso' => 5,
-            'descricao' => 'Medicina',
-            'tipo_curso' => 'Bacharelado'
-        ]);
-
-        Curso::create([
-            'cod_curso' => 6,
-            'descricao' => 'Direito',
-            'tipo_curso' => 'Bacharelado'
-        ]);
-
-        Curso::create([
-            'cod_curso' => 7,
-            'descricao' => 'Ciência da Computação',
-            'tipo_curso' => 'Bacharelado'
-        ]);
-
-        Curso::create([
-            'cod_curso' => 8,
-            'descricao' => 'Arquitetura',
-            'tipo_curso' => 'Bacharelado'
-        ]);
-
-        Curso::create([
-            'cod_curso' => 9,
-            'descricao' => 'Psicologia',
-            'tipo_curso' => 'Bacharelado'
-        ]);
-
-        Curso::create([
-            'cod_curso' => 10,
-            'descricao' => 'Economia',
-            'tipo_curso' => 'Bacharelado'
-        ]); 
+        // Cursos para as classes 10ª, 11ª e 12ª com tipos de curso específicos
+        for ($i = 10; $i <= 12; $i++) {
+            Curso::create([
+                'cod_curso' => $i, // Para garantir que os códigos de curso sejam de 1 a 3
+                'descricao' => $i . 'ª classe',
+                'tipo_curso' => $tipos_cursos[$i - 10] // Para garantir que a lista de tipos de curso seja percorrida corretamente
+            ]);
+        }
     }
 }

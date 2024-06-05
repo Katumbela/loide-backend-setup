@@ -14,9 +14,9 @@ class Propina extends Model
     public $incrementing = true;
     protected $fillable = [
         'valor',
-        'data',
         'n_matricula',
         'cod_mes',
+        'forma_pagamento'
     ];
 
     protected $hidden = [

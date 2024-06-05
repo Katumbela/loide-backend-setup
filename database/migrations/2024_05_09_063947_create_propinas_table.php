@@ -15,9 +15,10 @@ return new class extends Migration
 
             $table->unsignedBigInteger('cod_propina')->primary()->autoIncrement();
             $table->decimal('valor', 10, 2); // Decimal com 10 digitos totais e 2 decimais 
-            $table->string('data');
+           
             $table->bigInteger('n_matricula');
             $table->bigInteger('cod_mes');
+            $table->string('forma_pagamento');
             $table->timestamps();
 
             // Chaves estrangeiras
