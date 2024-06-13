@@ -23,6 +23,5 @@ class PeriodoSeeder extends Seeder
             'cod_periodo' => 3,
             'descricao' => 'Noite'
         ]);
- 
     }
 }

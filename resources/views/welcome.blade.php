@@ -20,10 +20,8 @@
 
 <body>
 
-    @viteReactRefresh
-    @vite('resources/js/app.tsx')
 
-
+    Hello from laravel and blade katombela's project<h1></h1>
     <div id="laravel-app"></div>
 
 </body>
